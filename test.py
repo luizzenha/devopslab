@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
-from app import app
+from app import app, pagina_inicial, soma_valores
 import unittest
 
 class Test(unittest.TestCase):
     def setUp(self):
         # cria uma instância do unittest, precisa do nome "setUp"
         self.app = app.test_client()
-
         # envia uma requisicao GET para a URL
         self.result = self.app.get('/')
 
@@ -27,3 +26,9 @@ class Test(unittest.TestCase):
         
         # verifica o retorno do conteudo da pagina /soma
         self.assertEqual(self.resultSoma.data.decode('utf-8'), "Sua soma de 10+10=20")
+
+    def test_pagina_inicial (self):
+        self.assertEqual(pagina_inicial(), "Hello World")
+
+    def test_soma_valores (self):
+        self.assertEqual(soma_valores(), "Sua soma de 10+10=20")
