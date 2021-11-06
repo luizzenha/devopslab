@@ -33,6 +33,8 @@ jobs:
 
     - stage: Stage Deploy
       name: "Deploy on heroku"
+      script: skip
+      
       # Definir o Deploy no Heroku
       deploy:
         provider: heroku
