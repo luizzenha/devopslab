@@ -31,8 +31,9 @@ jobs:
         - coverage xml app.py || travis_terminate 1;
         - sonar-scanner || travis_terminate 1;
 
-
-  # Definir o Deploy no Heroku
+    - stage: Stage Deploy
+      name: "Deploy on heroku"
+      # Definir o Deploy no Heroku
       deploy:
         provider: heroku
         api_key: $HEROKU_API_KEY
@@ -40,3 +41,8 @@ jobs:
         app: devops-lab-zenha
         on:
             branch: main
+
+    - stage: Stage Test
+      name: GET URL stage
+      script:
+        - curl https://devops-lab-zenha.herokuapp.com/ | grep Hello || travis_terminate
