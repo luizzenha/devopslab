@@ -16,7 +16,7 @@ addons:
 
 
 before_install:
-- openssl aes-256-cbc -K $encrypted_6f8fac1b445e_key -iv $encrypted_6f8fac1b445e_iv -in gcpkey.json.enc -out ../gcpkey.json -d
+  - openssl aes-256-cbc -K $encrypted_28260de50144_key -iv $encrypted_28260de50144_iv -in gcpkey.json.enc -out ../gcpkey.json -d
 
 jobs:
   include:
