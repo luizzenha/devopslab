@@ -12,7 +12,8 @@ python:
 addons:
   sonarcloud:
     organization: luizzenha-1
-    token: $SONAR_TOKEN
+    token:
+      secure: $SONAR_TOKEN
 
 
 jobs:
